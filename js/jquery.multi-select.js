@@ -1,13 +1,16 @@
-/*
-* MultiSelect v0.9.12
-* Copyright (c) 2012 Louis Cuny
-*
-* This program is free software. It comes without any warranty, to
-* the extent permitted by applicable law. You can redistribute it
-* and/or modify it under the terms of the Do What The Fuck You Want
-* To Public License, Version 2, as published by Sam Hocevar. See
-* http://sam.zoy.org/wtfpl/COPYING for more details.
-*/
+/**
+ ** MultiSelect v0.9.12
+ ** Copyright (c) 2012 Louis Cuny
+ **
+ ** This program is free software. It comes without any warranty, to
+ ** the extent permitted by applicable law. You can redistribute it
+ ** and/or modify it under the terms of the Do What The Fuck You Want
+ ** To Public License, Version 2, as published by Sam Hocevar.
+ ** See http://sam.zoy.org/wtfpl/COPYING for more details.
+ **
+ ** BenM 8/11/18
+ ** This file has been customized to make it Bootstrap compatible
+ **/
 
 !function ($) {
 
@@ -20,9 +23,10 @@
   var MultiSelect = function (element, options) {
     this.options = options;
     this.$element = $(element);
-    this.$container = $('<div/>', { 'class': "ms-container" });
-    this.$selectableContainer = $('<div/>', { 'class': 'ms-selectable' });
-    this.$selectionContainer = $('<div/>', { 'class': 'ms-selection' });
+    this.$container = $('<div/>', { 'class': "ms-container row" });
+    this.$selectableContainer = $('<div/>', { 'class': 'ms-selectable col-5' });
+	this.$switchContainer = $('<div/>', { 'class': 'ms-switch col-2' });
+    this.$selectionContainer = $('<div/>', { 'class': 'ms-selection col-5' });
     this.$selectableUl = $('<ul/>', { 'class': "ms-list", 'tabindex' : '-1' });
     this.$selectionUl = $('<ul/>', { 'class': "ms-list", 'tabindex' : '-1' });
     this.scrollTo = 0;
@@ -64,6 +68,7 @@
         }
 
         that.$container.append(that.$selectableContainer);
+		that.$container.append(that.$switchContainer);
         that.$container.append(that.$selectionContainer);
         ms.after(that.$container);
 
